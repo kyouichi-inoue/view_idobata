@@ -1,0 +1,90 @@
+.wrapper
+  .side-bar
+    .bar-header
+      .bar-header__box
+        %p.bar-header__box__user-name
+          どてちゃん
+        %ul.bar-header__box__menu
+          %li.bar-header__box__menu__new-group
+            =link_to "/groups/new" do
+              %i.fa.fa-edit{:style => "color:white;"}
+          %li.bar-header__box__menu__edit-user
+            =link_to "users/edit" do
+              %i.fa.fa-cog{:style => "color:white;"}
+    .groups
+      =link_to "groups/messages" do
+        .group
+          %p.group__group-name 大須呑み友の会
+          %p.group__latest-message (´･ω･`)
+      =link_to "groups/messages" do
+        .group
+          %p.group__group-name 岐阜呑み友の会
+          %p.group__latest-message (T ^ T)
+          
+  .chat-main
+    .main-header
+      .main-header__left-box
+        %h2.main-header__left-box__current-group
+          大須呑み友の会
+        %ul.main-header__left-box__member-list
+          member:
+          %li.main-header__left-box__member-list__member
+            どてちゃん
+            みゆき
+            らいち
+            トミー
+      =link_to "groups/edit" do
+        .main-header__edit-btn
+          Edit
+    .messages
+      .message
+        .message__upper-info
+          %p.message__upper-info__talker
+            どてちゃん
+          %p.message__upper-info__date
+            2019/12/24 12:00
+        %p.message__text
+          呑みに行こうぜ！
+      .message
+        .message__upper-info
+          %p.message__upper-info__talker
+            みゆき
+          %p.message__upper-info__date
+            2019/12/24 12:01
+        %p.message__text
+          すまん
+      .message
+        .message__upper-info
+          %p.message__upper-info__talker
+            らいち
+          %p.message__upper-info__date
+            2019/12/24 12:01
+        %p.message__text
+          すまん
+      .message
+        .message__upper-info
+          %p.message__upper-info__talker
+            トミー
+          %p.message__upper-info__date
+            2019/12/24 12:01
+        %p.message__text
+          すまん
+      .message
+        .message__upper-info
+          %p.message__upper-info__talker
+            どてちゃん
+          %p.message__upper-info__date
+            2019/12/24 12:0２
+        %p.message__text
+          (´･ω･`)
+    .form
+      .new-message{"accept-charset" => "UTF-8", :action => "/groups//messages", :enctype => "multipart/form-data", :method => "post"}
+        %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+        %input{:name => "authenticity_token", :type => "hidden", :value => "=="}/
+        .input-box
+          %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
+          %label.input-box__image{:for => "message_image"}
+            %i.fa.fa-image{:style => "color:black;"}
+            %input#message_image.input-box__image__file{:name => "message[image]", :type => "file"}/
+        %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+
