@@ -32,16 +32,14 @@
             margin-inline-start: 0px;
             margin-inline-end: 0px;
             padding-inline-start: 40px;
-            .bar-header__box__menu__new-group {
+            &__menu__new-group {
               margin-left: 0.3rem;
               display: list-item;
               text-align: -webkit-match-parent;
                 i.fa.fa-edit {
-                  color: white;
                   text-decoration: none;
                 }
-            }
-              
+            } 
             .bar-header__box__menu__edit-user {
               margin-left: 0.3rem;
               display: list-item;
@@ -67,13 +65,13 @@
           }
           .group {
             margin-bottom: 40px;
-          }
-            .group__group-name {
+          
+            &__group-name {
               font-size: 15px;
               margin-bottom: 5px;
             }
-            .group__latest-message {
+            &__latest-message {
               font-size: 11px;
             }
+          }
         }
-  
