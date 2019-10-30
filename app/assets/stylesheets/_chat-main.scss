@@ -46,18 +46,18 @@
       &__upper-info {
         display: flex;
         margin-bottom: 10px;
-        .message__upper-info__talker {
+        &__talker {
         color: #434a54;
         font-size: 16px;
         font-weight: bold;
         }
-        .message__upper-info__date {
+        &__date {
         color: #999999;
         font-size: 12px;
         margin-left: 10px;
         }
       }
-      .message__text {
+      &__text {
         color: #434a54;
         font-size: 14px;
         margin-bottom: 10px;
