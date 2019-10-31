@@ -1,0 +1,20 @@
+.bar-header
+  .bar-header__box
+    %p.bar-header__box__user-name
+      どてちゃん
+    %ul.bar-header__box__menu
+      %li.bar-header__box__menu__new-group
+        =link_to "/groups/new" do
+          %i.fa.fa-edit{:style => "color:white;"}
+      %li.bar-header__box__menu__edit-user
+        =link_to edit_user_path(current_user) do
+          %i.fa.fa-cog{:style => "color:white;"}
+.groups
+  =link_to "groups/messages" do
+    .group
+      %p.group__group-name 大須呑み友の会
+      %p.group__latest-message (´･ω･`)
+  =link_to "groups/messages" do
+    .group
+      %p.group__group-name 岐阜呑み友の会
+      %p.group__latest-message (T ^ T)
