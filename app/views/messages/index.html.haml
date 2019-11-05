@@ -16,47 +16,7 @@
         .main-header__edit-btn
           Edit
     .messages
-      .message
-        .message__upper-info
-          %p.message__upper-info__talker
-            どてちゃん
-          %p.message__upper-info__date
-            2019/12/24 12:00
-        %p.message__text
-          呑みに行こうぜ！
-      .message
-        .message__upper-info
-          %p.message__upper-info__talker
-            みゆき
-          %p.message__upper-info__date
-            2019/12/24 12:01
-        %p.message__text
-          すまん
-      .message
-        .message__upper-info
-          %p.message__upper-info__talker
-            らいち
-          %p.message__upper-info__date
-            2019/12/24 12:01
-        %p.message__text
-          すまん
-      .message
-        .message__upper-info
-          %p.message__upper-info__talker
-            トミー
-          %p.message__upper-info__date
-            2019/12/24 12:01
-        %p.message__text
-          すまん
-      .message
-        .message__upper-info
-          %p.message__upper-info__talker
-            どてちゃん
-          %p.message__upper-info__date
-            2019/12/24 12:0２
-        %p.message__text
-          (´･ω･`)
-          
+      = render @messages
     .form
       = form_for [@group, @message] do |f|
         = f.text_field :content, class: 'form__message', placeholder: 'type a message'
