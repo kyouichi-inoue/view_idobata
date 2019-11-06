@@ -4,15 +4,14 @@
     .main-header
       .main-header__left-box
         %h2.main-header__left-box__current-group
-          大須呑み友の会
+          #{@group.name}
         %ul.main-header__left-box__member-list
-          member:
-          %li.main-header__left-box__member-list__member
-            どてちゃん
-            みゆき
-            らいち
-            トミー
-      =link_to "groups/edit" do
+          member :
+          - @group.users.each do |user|
+            %li.main-header__left-box__member-list__member
+              #{user.name}
+            
+      =link_to edit_group_path(@group) do
         .main-header__edit-btn
           Edit
     .messages
