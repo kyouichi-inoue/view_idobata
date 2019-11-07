@@ -140,3 +140,15 @@ ja:
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+      
+      carrierwave_processing_error: 処理されることに失敗した
+      carrierwave_integrity_errorは: 許可されているファイル・タイプではないです
+      carrierwave_download_error: ダウンロードすることができませんでした
+      extension_whitelist_errorを: 「あなたがアップロード％{拡張子}ファイル、許可されたタイプに許可されていません:％{allowed_types} 」
+      extension_blacklist_error: "％{extension}ファイルのアップロードは許可されていません。禁止されているタイプ:％{prohibited_types} "
+      content_type_whitelist_error: "％{content_type}ファイルのアップロードは許可されていません。許可されているタイプ:％{allowed_types} "
+      content_type_blacklist_error: "％{content_type}ファイルのアップロードは許可されていません"
+      rmagick_processing_error: " rmagickによる操作に失敗しました。 ？"
+      mini_magick_processing_error: " MiniMagickでの操作に失敗しました。画像ではない可能性がありますか？元のエラー:％{e} "
+      min_size_error: "ファイルサイズは％{min_size}より大きくなければなりません"
+      max_size_error: "ファイルサイズは％{max_size}より小さくなければなりません"
