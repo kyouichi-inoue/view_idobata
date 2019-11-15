@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: view_idobata_production
-  username: view_idobata
-  password: <%= ENV['VIEW_IDOBATA_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
