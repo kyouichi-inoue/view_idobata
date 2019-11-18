@@ -1,7 +1,6 @@
 $(function(){
 
   function buildMessage(message){
-
     var img = message.image != null ? `<img src='${ message.image }', class='lower-message__image'></img>` : ""
     var cont = message.content != "" ? `<p class="lower-message__content">${ message.content }</p>` : ""
     var html = `<div class="message" data-message-id="${ message.id }">
@@ -19,31 +18,38 @@ $(function(){
                   </div>
                 </div>`
     return html;
-  }
+  };
 
   $('#new_message').on('submit', function(e){
-    e.preventDefault();
-    var formData = new FormData(this);
-    var url = $(this).attr('action');
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: formData,
-      dataType: 'json',
-      processData: false,
-      contentType: false
-    })
-    .done(function(message){
-      var html = buildMessage(message);
-      $('.messages').append(html)
-      $("#new_message")[0].reset();
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'slow');
-      $( ".form__submit").prop( "disabled", false );
-    })
-    .fail(function(){
-      alert("メッセージ送信に失敗しました");
-    });
-  })
+      e.preventDefault()
+      var formData = new FormData(this);
+      var url = $(this).attr('action');
+      $.ajax({
+        url: url,
+        type: 'POST',
+        data: formData,
+        dataType: 'json',
+        contentType: false,
+        processData: false
+      })
+      .done(function(data){
+        if (data.id == null) {
+          alert("メッセージ送信に失敗しました");
+          $( ".form__submit").prop( "disabled", false );
+        } else {
+        var html = buildMessage(data);
+        $('.messages').append(html);
+        $("#new_message")[0].reset();
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'slow');
+        $( ".form__submit").prop( "disabled", false );
+        }
+      })
+
+      // .failが読み込まれないため.doneの中で条件分岐
+      // .fail(function(){
+      //   alert("メッセージ送信に失敗しました");
+      // })
+  });
   var reloadMessages = function () {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
       var last_message_id = $('.message:last').data("message-id");
@@ -54,7 +60,7 @@ $(function(){
         data: {last_id: last_message_id}
       })
       .done(function (messages) {
-        if(messages.length != 0){
+        if(messages.length !== 0){
           var insertHTML = '';
           messages.forEach(function (message) {
             insertHTML += buildMessage(message);
